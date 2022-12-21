@@ -5,12 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using webapi_dotnet6.Entity;
 
-namespace webapi_dotnet6.Data
-{
-    public class DataContext : DbContext
-    {
-        public DataContext(DbContextOptions<DataContext> opts) : base(opts) { }
+namespace webapi_dotnet6.Data;
 
-        public DbSet<Course> Courses { get; set; }
-    }
+public class DataContext : DbContext
+{
+    public DataContext(DbContextOptions<DataContext> opts) : base(opts) { }
+
+    public DbSet<Course> Courses { get; set; }
 }

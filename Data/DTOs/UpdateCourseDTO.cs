@@ -1,17 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace webapi_dotnet6.Entity;
+namespace dotnet6_api.Data.DTOs;
 
-public class Course
+public class UpdateCourseDTO
 {
-    [Key]
-    [Required]
-    public int Id { get; set; }
-
     [Required(ErrorMessage = "O nome do curso é obrigatório")]
     [StringLength(20, ErrorMessage = "O nome do curso não pode exceder 20 caracteres")]
     public string Name { get; set; }
@@ -25,7 +17,7 @@ public class Course
     public int Duration { get; set; }
 
     [Required(ErrorMessage = "O tipo de graduação é obrigatório")]
-    [MaxLength(20, ErrorMessage = "O tipo de graduação não pode exceder 20 caracteres")]
+    [StringLength(20, ErrorMessage = "O tipo de graduação não pode exceder 20 caracteres")]
     public string GraduationType { get; set; }
 
     [Required(ErrorMessage = "A modalidade de graduação é obrigatória")]
