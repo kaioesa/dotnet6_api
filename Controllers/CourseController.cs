@@ -20,12 +20,25 @@ public class CourseController : ControllerBase
         _mapper = mapper;
     }
 
+    /// <summary>
+    /// Obtem todos os cursos do banco de dados
+    /// </summary>
+    /// <param name="skip">Define a quantidade de items a serem pulados na requisição</param>
+    /// <param name="take">Define a quantidade de items a serem guardados dentro da requisição</param>
+    /// <returns>IActionResult</returns>
+    /// <response code="200">Caso os dados sejam obtidos com sucesso</response>
     [HttpGet]
     public IEnumerable<ReadCourseDTO> GetAllCourses([FromQuery] int skip = 0, int take = 50)
     {
         return _mapper.Map<List<ReadCourseDTO>>(_context.Courses.Skip(skip).Take(take));
     }
 
+    /// <summary>
+    /// Obtem cursos especificos do banco de dados
+    /// </summary>
+    /// <param name="id">Id referente ao curso que será obtido</param>
+    /// <returns>IActionResult</returns>
+    /// <response code="200">Caso os dados sejam obtidos com sucesso</response>
     [HttpGet("{id}")]
     public IActionResult GetCourseById(int id)
     {
@@ -55,6 +68,13 @@ public class CourseController : ControllerBase
         return CreatedAtAction(nameof(GetCourseById), new { id = course.Id }, course);
     }
 
+    /// <summary>
+    /// Atualiza um curso existente no banco de dados
+    /// </summary>
+    /// <param name="id">Id referente ao curso que será alterado</param>
+    /// <param name="courseDTO">Objeto com campos para edição de um curso</param>
+    /// <returns>IActionResult</returns>
+    /// <response code="204">Caso a atualização seja feita com sucesso</response>
     [HttpPut("{id}")]
     public IActionResult UpdateCourse(int id, [FromBody] UpdateCourseDTO courseDTO)
     {
@@ -67,6 +87,13 @@ public class CourseController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Atualiza parcialmente um curso existente no banco de dados
+    /// </summary>
+    /// <param name="id">Id referente ao curso que será alterado</param>
+    /// <param name="patch">Objeto com campos para a edição parcial ou total de um curso</param>
+    /// <returns>IActionResult</returns>
+    /// <response code="204">Caso a atualização seja feita com sucesso</response>
     [HttpPatch("{id}")]
     public IActionResult PatchCourse(int id, [FromBody] JsonPatchDocument<UpdateCourseDTO> patch)
     {
@@ -87,6 +114,12 @@ public class CourseController : ControllerBase
         return NoContent();
     }
 
+/// <summary>
+/// Deleta um curso existente no banco de dados
+/// </summary>
+/// <param name="id">Id referente ao curso que será alterado</param>
+/// <returns>IActionResult</returns>
+/// <response code="204">Caso a deleção seja feita com sucesso</response>
     [HttpDelete("{id}")]
     public IActionResult DeleteCourse(int id)
     {

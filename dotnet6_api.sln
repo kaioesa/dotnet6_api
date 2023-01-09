@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet6_api", "dotnet6_api.csproj", "{0AB4076C-2F26-4AAC-A23B-153E048CDEDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet6_api", "dotnet6_api.csproj", "{0AB4076C-2F26-4AAC-A23B-153E048CDEDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests_dotnet6_api", "..\tests_dotnet6_api\tests_dotnet6_api.csproj", "{38E30110-176D-43C6-A3F7-E2F830557680}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0AB4076C-2F26-4AAC-A23B-153E048CDEDB} = {0AB4076C-2F26-4AAC-A23B-153E048CDEDB}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{0AB4076C-2F26-4AAC-A23B-153E048CDEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AB4076C-2F26-4AAC-A23B-153E048CDEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AB4076C-2F26-4AAC-A23B-153E048CDEDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38E30110-176D-43C6-A3F7-E2F830557680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38E30110-176D-43C6-A3F7-E2F830557680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38E30110-176D-43C6-A3F7-E2F830557680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38E30110-176D-43C6-A3F7-E2F830557680}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
